@@ -1,14 +1,10 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
+import * as socketio from '../plugins/socketio'
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+export const useStore = defineStore('store', () => {
+  const sendEvent = (event) => socketio.sendEvent(event)
+
+  return {
+    sendEvent
   }
 })
